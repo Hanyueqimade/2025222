@@ -27,7 +27,7 @@ export default function PDFRotator({ file: propFile }: PDFRotatorProps) {
     setIsLoading(false)
   }
 
-  function onDocumentLoadError(error: Error) {
+  function onDocumentLoadError() {
     setError('PDF 加载失败，请重试')
     setIsLoading(false)
   }
@@ -65,7 +65,7 @@ export default function PDFRotator({ file: propFile }: PDFRotatorProps) {
       a.click()
       document.body.removeChild(a)
       URL.revokeObjectURL(url)
-    } catch (err) {
+    } catch {
       setError('PDF 处理失败，请重试')
     } finally {
       setIsLoading(false)
